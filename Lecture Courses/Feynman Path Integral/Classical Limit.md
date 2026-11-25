@@ -1,0 +1,31 @@
+We can recover classical physics from the [path integral](Feynman%20Path%20Integral) by studying the limit $\hbar\to 0$, or more precisely $\hbar$ to be very small compared to the typical fluctuations of the action. To do this we need to figure out which paths contribute in this limit in the path integral. Looking at the transition amplitude
+$$\braket{ q_{f},t_{f} | q_{i},t_{i} } =\int_{q(t_{i})=q_{i}\\ q(t_{f})=q_{f}}\mathcal{D}q \exp\left[ \frac{i}{\hbar}S[q] \right]\tag{4.1},$$
+it can be computed as $\hbar\to 0$ using the stationary phase approximation. The idea that we are summing over all paths, weighted by a phase, and as $\hbar\to 0$ the integrand becomes highly oscillatory which can make different paths cancel out due to destructive interference. The path which dominates will be the one for which the phase - the action - is stationary.
+
+Start by looking at a particular path $q(t)=q^{*}(t)$ and look at small fluctuations of this path
+$$q(t)=q^{*}(t)+\eta(t)\tag{4.2}$$
+where $\eta(t)$ and its derivatives are small. We also take $q^{*}(t_{i})=q_{i}$, and $q^{*}(t_{f})=q_{f}$ which means that $\eta$ is fixed to zero at the endpoints $\eta(t_{i})=\eta(t_{f})=0$. We can then expand the action,
+$$S[q^{*}+\eta]=\int_{t_i}^{t_{f}}dt\,L(q^{*}+\eta,\dot{q}^{*}+\dot{\eta})=S[q^{*}]+\int_{t_{i}}^{t_{f}}dt\left( \eta(t)\left. \frac{\partial L}{\partial q} \right|_{q=q^{*}}+\dot{\eta}(t) \left. \frac{\partial L}{\partial \dot{q}} \right|_{q=q^{*}} +\mathcal{O}(\eta^2)\right)=S[q^{*}]+\int_{t_{i}}^{t_{f}}dt\left( \eta(t) \left.\frac{\partial L}{\partial t}\right|_{q=q^{*}}-\eta(t) \left. \frac{d}{dt} \frac{\partial L}{\partial \dot{q}}  \right|_{q=q^{*}}+\mathcal{O}(\eta^2) \right)\tag{4.3}$$
+where we have integrated by parts, and used the fact that $\eta$ vanishes at the endpoints of the integration interval
+$$\int_{t_{i}}^{t_{f}}dt \frac{d\eta}{dt} \frac{\partial L}{\partial t}= \eta \left. \frac{\partial L}{\partial t} \right|_{t_{i}}^{t_{f}}-\int_{t_{i}}^{t_{f}}dt\,\eta(t) \frac{d}{dt} \frac{\partial L}{\partial \dot{q}}\tag{4.4}.$$
+Let us take $\eta$ and its time derivative to be small enough that we can neglect higher order terms. The phase difference between the two neighbouring paths $q^{*}$ and $q^{*}+\eta$ is then
+$$\frac{i}{\hbar}\int_{t_{i}}^{t_{f}}dt\,\eta(t)\left(\left. \frac{\partial L}{\partial q}\right|_{q=q^{*}}-\frac{d}{dt} \left. \frac{\partial L}{\partial \dot{q}}\right|_{q=q^{*}} \right)=\frac{i}{\hbar}\delta S[q],\tag{4.5}$$
+where we recognise that we have just computed the functional variation with $\delta q=\eta$. Now even with $\eta$ small as we take $\hbar\to 0$ the phase difference between two paths is large, and it will give rise to cancellations due to destructive interference, unless we have that the integrand vanishes,
+$$\left. \frac{\partial L}{\partial q}\right|_{q=q^{*}}-\frac{d}{dt} \left. \frac{\partial L}{\partial \dot{q}}\right|_{q=q^{*}}=0\tag{4.6}$$
+which we recognise as the Euler-Lagrange equations for a classical path $q_{cl}$, that is $q^{*}=q_{cl}$. So, as $\hbar\to 0$ the leading contribution then comes from a path that obeys the E-L eqn. Note that if we had Wick rotated instead of phases we would have a factor of $\exp \left[ -\frac{1}{\hbar}S_{E}[q] \right]$ and we would have gotten the steepest descent formula instead, that states that the leading contribution comes from the minimum of the Euclidean action.
+
+We can now write a semi-classical approximation for small $\hbar$ by expanding the action around the classical paths
+$$q(t)=q_{cl.}(t)+\eta(t)\tag{4.7}$$
+where again
+$$q_{cl.}(t_{i})=q_{i},\quad q_{cl.}(t_{f})=q_{f},\quad \eta(t_{i})=\eta(t_{f})=0\tag{4.8}.$$
+We expand the action
+$$S[q_{cl.}+\eta]=S[q_{cl.}]+\int_{t_{i}}^{t_{f}}dt_{1}\eta(t_{1})\left. \frac{\delta S}{\delta q(t_{1})}\right|_{q=q_{cl.}}+\frac{1}{2}\int_{t_{i}}^{t_{f}}dt_{1}dt_{2} \left. \frac{\delta^2S}{\delta q(t_{1})\delta q(t_{2})} \right|_{q=q_{cl.}}\eta(t_{1})\eta(t_{2})+\sum_{n=1}^{\infty} \frac{1}{n!}\int_{t_{i}}^{t_{f}}dt_{1}\dots dt_{n} \left. \frac{\delta^nS}{\delta q(t_{1})\dots\delta q(t_{n})} \right|_{q=q_{cl.}}\eta(t_{1})\dots \eta(t_{n})\tag{4.9}.$$
+We can plug this expansion in the transition amplitude and we use the fact that $q(t)=q_{cl.}(t)+\eta(t)$, so since the classical path is fixed $\mathcal{D}q=\mathcal{D}\eta$. Because the leading quantum correction is quadratic in $\eta$ we will also change variables to $\eta=\eta'\sqrt{ \hbar }$ so we can keep track of the powers of $\hbar$ of subsequent terms
+$$\braket{ q_{f},t_{f} | q_{i},t_{i} } =\exp\left[ \frac{i}{\hbar}S[q_{cl.}]\right]\int_{\eta'(t_{i})=0\\ \eta'(t_{f})=0}\mathcal{D}\eta'\sqrt{ \hbar }\exp\left[ \frac{i}{2}\int_{t_{i}}^{t_{f}}dt_{1}dt_{2} \left. \frac{\delta^2S}{\delta q(t_{1})\dots\delta q(t_{n})} \right|_{q=q_{cl.}}\eta'(t_{1})\dots \eta'(t_{n})\right](1+\mathcal{O}(\sqrt{ \hbar }))\tag{4.10}. $$
+Let us consider only the first correction, for the standard Lagrangian, $L=\frac{1}{2}m\dot{q}^2-V(q)$, we can evaluate the second functional derivative as
+$$\frac{\delta^2S}{\delta q(t_{1})\dots\delta q(t_{2})}=-m \frac{d^2}{dt_{1}^2}\delta(t_{1}-t_{2})-V''(q)\delta(t_{1}-t_{2})\tag{4.11}.$$
+We thus have that to this order, after integrating by parts twice and using $(4.8)$
+$$S[q_{cl.}+\eta]=S[q_{cl.}]+\frac{1}{2}\int_{t_{i}}^{t_{f}}dt_{1}dt_{2} \left. \frac{\delta^2S}{\delta q(t_{1})\delta q(t_{2})} \right|_{q=q_{cl.}}+\dots=S[q_{cl.}] - \frac{1}{2}\int_{t_{i}}^{t_{f}}dt_{1}\eta(t_{1})\left( m \frac{d^2}{dt_{1}^2}+V''(q_{cl.}) \right)\eta(t_{1})+\dots\equiv S[q_{cl.}]+\int_{t_{i}}^{t_{f}}dt_{1}\eta(t_{1})\Omega \eta(t_{1})+\dots \tag{4.12}$$
+where we defined the operator $\Omega$ by the last equation. The first quantum correction to our path integral then becomes
+$$\braket{ q_{f},t_{f} | q_{i},t_{i} } =\int_{q(t_{i})=q_{i}\\q(t_{f})=q_{f}}\mathcal{D}q \exp\left[ \frac{i}{\hbar}S[q_{cl.}+\eta] \right]\approx \exp\left[ \frac{i}{\hbar}S[q_{cl.}] \right]\int_{\eta(t_{i})=0\\ \eta(t_{f})=0}\mathcal{D}\eta \exp\left[ \frac{i}{\hbar}\int_{t_{i}}^{t_{f}}dt\,\eta(t)\Omega \eta(t) \right].\tag{4.13}$$
+This is a Gaussian integral, and can also be given by a determinant of $\Omega$, although these are very hard to evaluate except in cases like the Harmonic oscillator.

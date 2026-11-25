@@ -1,0 +1,4 @@
+To discuss fixed-order calculations in QCD, we need to establish a suitable language. The order is denoted as leading order if the result of the calculation leads the first non-trivial contribution to the perturbative expansion to this very observable. Consequently, next-to-leading order denotes the order at which the first perturbative correction to the same observable is being evaluated. For example, below the first diagram is leading order and the other two are the next-to-leading order corrections,
+![[Pasted image 20261111111508.png|731]]
+
+For the process above, LO has an $\alpha_{s}$ term, NLO has an $\alpha_{s}^2$ term, NNLO has an $\alpha_{s}^{3}$ term, etc.
