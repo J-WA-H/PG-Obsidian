@@ -9,3 +9,37 @@ The catch in this method is that due to the universal structure of infrared dive
 The underlying idea can be shown in a toy model - assume that Born, virtual, and real emission matrix elements squared to $\mathcal{O}(\alpha)$ read
 $$\mathcal{B}_{n}=\sum |\mathcal{M}^{(\mathcal{B})}_{n}|^2, \\ \mathcal{V}_{n}=\frac{V_{n}}{\varepsilon}=\sum |\mathcal{M}^{(\mathcal{B})}_{n`}\mathcal{M}^{*(\mathcal{V})}_{n}|, \\ \mathcal{R}_{n}=\frac{R_{n}(x)}{x}=\sum |\mathcal{M}_{n+1}^{(\mathcal{R})}(x)|^2,\tag{3.3}$$
 where the Born and virtual contributions are constant in the toy model and the latter has already been regularised in $D$ dimensions and its ultraviolet divergences have been regularised and renormalised. The remaining infrared divergences then lead to the pole in $1/\varepsilon$, which has been made explicit in the virtual contribution. In the toy model $V_{n}$ is infrared finite and ultraviolet renormalised. The real emission part in the toy model depends on a one-dimensional phase-space parameter $x\in[0,1]$ and it diverges for $x\to 0$, producing a single pole $1/\varepsilon$, as again made explicit while the function $R_{n}(x)$ is regular in the full interval.
+
+Written in these quantities the NLO cross-section is given by
+$$\sigma^{(NLO)}=[\mathcal{B}_{n}+\mathcal{V}_{n}]F_{n}^{J}+\int_{0}^{1}dx\,\mathcal{R}_{n}(x)F^{J}_{n+1}(x)=\left[ \mathcal{B}_{n}+\frac{V_{n}}{\varepsilon} \right]F_{n}^{J}+\int_{0}^{1} \frac{dx}{x}R_{n}(x)F^J_{n+1}\tag{3.4}$$
+where $F^{J}$ is a jet criterion applied in order to ensure that the Born-level cross-sections and the corresponding kinematics are free singularities. It suffices to remember that in the language of QCD the application of a jet criterion implies that the $m$ outgoing particles are all sufficiently energetic and well separated from each other such that the Born cross-section is free of infrared singularities. In fact, this jet criterion could be replaced with any observable that ensures that the Born-level part is well behaved.
+
+Typically, when adding virtual corrections, no new phase space regions become available because the incoming and outgoing particles are still the same as at the Born level. Therefore the function $F$ can be applied without much ado also to the virtual part. This is unlike real radiation, where the infrared divergences appear in the $1/x$ poles. To deal with them $F^J$ must be defined in such a way that the soft or collinear emissions - with $x\to 0$ in the toy model - do not affect it. This catches the essence of the definition of an observable being infrared safe: it must be defined in such a way that further soft and/or collinear emissions don't affect it. Mathematically this means that
+$$\lim_{ x \to 0 } F_{n+1}^{J}=F^{J}_{n+1}(0)=F_{n}^{J}\tag{3.5}.$$
+It is important to stress that without infrared safe observables the full concept of higher order calculations becomes meaningless.
+
+The Bloch-Nordsieck and Kinoshita-Lee-Nauenberg theorems state that for infrared-safe quantities the infrared divergences in the real and virtual contributions cancel, which implies that
+$$\lim_{ x \to 0 } R_{n}(x)\equiv R_{n}(0)=V.\tag{3.6}$$
+In the framework of NLO calculations two systematically different methods have been developed to isolate the pole in the real-emission contributions, namely phase-space slicing and subtraction. In both cases the real-emission contribution will be written in $D$ dimensions - in the toy model here this amounts to replacing the $x^{-1}$ pole by $x^{-1-\varepsilon}$. Then the ideas underlying both methods are outlined below.
+
+1. Phase-space slicing:
+	The idea is to introduce an arbitrary cutoff $\delta$ and to rewrite the NLO part of the cross-section as
+	$$\sigma^{(1)}=\frac{V_{n}}{\varepsilon}F_{n}^{J}+\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x)=\frac{V_{n}}{\varepsilon}F_{n}^{J}+\int_{0}^{\delta} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x)+\int_{\delta}^{1} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x)\tag{3.7}.$$
+	This can be approximated to first order in $\varepsilon$ as
+	$$\sigma^{(1)}=\frac{V_{n}}{\varepsilon}F_{n}^{J}+R_{n}(0)F_{n}^{J}\int_{0}^{\delta} \frac{dx}{x^{1+\varepsilon}}+\int_{\delta}^{1} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x)+\mathcal{O}(\varepsilon)\tag{3.8}=[1-\delta^{-\varepsilon}] \frac{V_{n}}{\varepsilon}F_{n}^{J}+\int_{\delta}^{1} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x)+\mathcal{O}(\varepsilon) \\ = \log(\delta) V_{n}F_{n}^{J}+\int_{\delta}^{1} \frac{dx}{x^{1+\varepsilon}} R_{n}(x)F_{n+1}^{J}(x)+\mathcal{O}(\varepsilon)$$
+	where $\delta^{-1}=1-\varepsilon \log\delta+\mathcal{O}(\varepsilon^2)$ has been used. This procedure has a nice additional feature, that the answer should be independent from $\delta$. However these is tension between retaining a good singular approximation which relies on very small $\delta$, and still avoiding large logarithmic cancellations which relies on very large $\delta$.
+
+2. Subtraction method:
+	The problem with $\delta$ is alleviated by subtraction methods, where a zero is introduced into the result by adding and subtracting a term
+	$$R_{n}(0)F_{n}^{J}\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}\tag{3.9}$$
+	such that the first order calculation reads
+	$$\sigma^{(1)}=\frac{V_{n}}{\varepsilon}F_{n}^{J}+\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x)=\frac{V_{n}}{\varepsilon}F_{n}^{J}+R_{n}(0)F_{n}^{J}\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}-R_{n}(0)F_{n}^{J}\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}+\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}R_{n}(x)F_{n+1}^{J}(x) \\ = \frac{V_{n}}{\varepsilon} F_{n}^{J}[1-1]+\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}} [R_{n}(x)F_{n}^{J}(x)-V_{n}F_{n}^{J}]\tag{3.10}.$$
+	This subtraction is possible because the infrared structure of the toy model is entirely known and entirely fixed by $(3.6)$, In real applications the case is not as trivial, although the infrared structure is still fixed by the fact that in the soft and collinear limits of parton emission the respective real-emission contributions factorise into a process-dependent Born part and a process-independent parton splitting part, where the spin dependence is given by the Altarelli-Parisi splitting kernals.
+
+Translating the toy model to the language employed in real systems, in general a cross-section at LO and NLO is written as 
+$$\sigma^{(LO)}=\int d\Phi_{\mathcal{B}} \mathcal{B}_{n}(\Phi_{\mathcal{B}};\mu_{F},\mu_{R}) \\ \sigma^{(NLO)}=\int d\Phi_{\mathcal{B}}[\mathcal{B}_{n}(\Phi_{\mathcal{B}};\mu_{F},\mu_{R})+\mathcal{V}_{n}(\Phi_{\mathcal{B}};\mu_{F},\mu_{R}) +\mathcal{I}^{(\mathcal{S})}_{n}(\Phi_{\mathcal{B}};\mu_{F},\mu_{R})]+\int d\Phi_{\mathcal{R}}[\mathcal{R}_{n}(\Phi_{\mathcal{R}};\mu_{F},\mu_{R})-\mathcal{S}_{n}(\Phi_{\mathcal{R}};\mu_{F},\mu_{R})]\tag{3.11}.$$
+As before $\Phi_{\mathcal{B}},\Phi_{\mathcal{R}}$ denote the Born and real-emission phase space, and $\mathcal{B}_{n},\mathcal{V}_{n},\mathcal{I}^{(\mathcal{S})}_{n},\mathcal{R}_{n},\mathcal{S}_{n}$ are the matrix elements for the Born, renormalised virtual, integrated subtraction, real emission, and real subtraction contributions.
+
+The integration subtraction and the real subtraction contributions actually correspond to the terms 
+$$\pm R_{m}(0)F_{m}^{J}\int_{0}^{1} \frac{dx}{x^{1+\varepsilon}}\tag{3.12}$$
+which are combined with the virtual correction $V_{m}F_{m}^{J}/\varepsilon$ and with the real correction term in the toy model. 

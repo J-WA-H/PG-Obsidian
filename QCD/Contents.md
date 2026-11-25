@@ -22,4 +22,6 @@ QCD to Leading Order:
 QCD to NLO:
 - [[Intro to NLO Processes]]
 - [[Drell-Yan processes]]
+- [[Infrared Divergences]]
+- [[W Production at NLO]]
 - 
